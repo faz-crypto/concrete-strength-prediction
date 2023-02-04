@@ -23,7 +23,7 @@ def predict():
         X=scalar.transform([[cement,slag,flyash,water,superplasticizer,coarseaggregate,fineaggregate,age]])
         prediction=model.predict(X)
         output=round(prediction[0],2)
-        if output<0:
+        if output<=0:
             return render_template('index.html',prediction_texts="incorrect values")
         else:
             return render_template('index.html',prediction_text="the compressive  strength in {} Mpa".format(output))       
